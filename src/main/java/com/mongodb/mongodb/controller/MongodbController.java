@@ -2,6 +2,7 @@ package com.mongodb.mongodb.controller;
 
 import com.mongodb.mongodb.dao.MongoTestDao;
 import com.mongodb.mongodb.model.MongoTest;
+import com.mongodb.mongodb.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,6 +49,15 @@ public class MongodbController {
     @GetMapping(value="/test4")
     public void deleteTestById(){
         mtdao.deleteTestById(11);
+    }
+
+
+    @Autowired
+    private TestService testService;
+    @GetMapping(value = "/test")
+    public String test(){
+        String  s = testService.getTest();
+        return  s;
     }
 
 }
