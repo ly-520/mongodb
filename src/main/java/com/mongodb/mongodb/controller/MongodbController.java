@@ -1,11 +1,14 @@
 package com.mongodb.mongodb.controller;
 
+import com.mongodb.mongodb.base.JsonResult;
 import com.mongodb.mongodb.dao.MongoTestDao;
 import com.mongodb.mongodb.model.MongoTest;
 import com.mongodb.mongodb.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
  * @author ljt
@@ -22,12 +25,16 @@ public class MongodbController {
     private MongoTestDao mtdao;
 
     @GetMapping(value="/test1")
-    public void saveTest() throws Exception {
+    public JsonResult<Map<String,Object>> saveTest() throws Exception {
+        JsonResult<Map<String,Object>> jsonResult = new JsonResult<>();
         MongoTest mgtest=new MongoTest();
-        mgtest.setId(11);
-        mgtest.setAge(33);
-        mgtest.setName("ceshi");
+        mgtest.setId(22);
+        mgtest.setAge(34);
+        mgtest.setName("haha");
         mtdao.saveTest(mgtest);
+        //Map<String,Object> map = new HashMap<>();
+        jsonResult.success();
+        return jsonResult;
     }
 
     @GetMapping(value="/test2")

@@ -28,7 +28,7 @@ public class JsonResult<T> {
     }
 
     public void success() {
-        this.code = 0;
+        this.code = 200;
         this.message = "SUCCESS";
     }
 

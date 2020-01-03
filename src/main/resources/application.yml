@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:123456@47.93.96.60:27017/
+      database: admin
